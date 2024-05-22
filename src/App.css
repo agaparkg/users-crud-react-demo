@@ -2,3 +2,36 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.login-page {
+  border: 1px solid rgb(231, 229, 229);
+  border-radius: 10px;
+  width: 400px;
+  margin: 300px auto;
+  padding: 20px;
+}
+
+.credentials {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.email {
+  margin-bottom: 10px;
+}
+
+.login-btn {
+  text-transform: uppercase;
+  border: none;
+  background-color: rgb(42, 147, 133);
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: rgb(150, 103, 15);
+}
