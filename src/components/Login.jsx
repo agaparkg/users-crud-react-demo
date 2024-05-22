@@ -14,7 +14,11 @@ function Login() {
         <button className="login-btn" type="submit">
           Login
         </button>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && (
+          <p className="error" style={{ color: "red" }}>
+            {error}
+          </p>
+        )}
       </form>
     </div>
   );
