@@ -1,4 +1,4 @@
-import { Button, Table } from "reactstrap";
+import { Button, Table } from "react-bootstrap";
 
 function UsersTable() {
   return (
