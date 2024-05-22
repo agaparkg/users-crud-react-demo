@@ -1,4 +1,4 @@
-import { Container, Navbar } from "reactstrap";
+import { Container, Navbar } from "react-bootstrap";
 import logo from "../assets/images/logo-white.png";
 
 function Header() {
@@ -12,9 +12,9 @@ function Header() {
               alt="logo"
               src={logo}
               style={{
-                height: 40,
-                width: 40,
-                marginRight: "10px",
+                height: 60,
+                width: 60,
+                marginRight: "20px",
               }}
             />
             React Users CRUD App
