@@ -1,11 +1,21 @@
 import { Button, Table } from "react-bootstrap";
 
-function UsersTable() {
+function UsersTable({ users }) {
+  const formatBirthDate = (dateString) => {
+    const options = {
+      weekday: "short",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   return (
     <Table striped bordered hover>
       <thead>
         <tr>
-          <th></th>
+          <th>Avatar</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
@@ -15,19 +25,30 @@ function UsersTable() {
       </thead>
 
       <tbody>
-        <tr>
-          <td className="field-avatar">
-            <img src="" alt="" />
-          </td>
-          <td>Alex</td>
-          <td>Jones</td>
-          <td>a@a.com</td>
-          <td>Jan 23 1990</td>
-          <td>
-            <Button variant="primary">Update</Button>{" "}
-            <Button variant="danger">Delete</Button>
-          </td>
-        </tr>
+        {users.length ? (
+          users.map((user) => {
+            const { firstname, lastname, id, email, birthdate, avatar } = user;
+            return (
+              <tr key={id}>
+                <td className="field-avatar">
+                  <img src={avatar} alt="" />
+                </td>
+                <td>{firstname}</td>
+                <td>{lastname}</td>
+                <td>{email}</td>
+                <td>{formatBirthDate(birthdate)}</td>
+                <td>
+                  <Button variant="primary">Update</Button>{" "}
+                  <Button variant="danger">Delete</Button>
+                </td>
+              </tr>
+            );
+          })
+        ) : (
+          <tr>
+            <td colSpan="6">No records found</td>
+          </tr>
+        )}
       </tbody>
     </Table>
   );

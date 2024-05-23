@@ -1,7 +1,7 @@
-import { Container, Navbar } from "react-bootstrap";
+import { Button, Container, Navbar } from "react-bootstrap";
 import logo from "../assets/images/logo-white.png";
 
-function Header() {
+function Header({ setLoggedIn }) {
   return (
     <>
       <Navbar bg="dark" variant="dark" className="mb-3">
@@ -19,6 +19,14 @@ function Header() {
             />
             React Users CRUD App
           </Navbar.Brand>
+          <Button
+            onClick={() => {
+              localStorage.removeItem("token");
+              setLoggedIn(false);
+            }}
+          >
+            Logout
+          </Button>
         </Container>
       </Navbar>
     </>
