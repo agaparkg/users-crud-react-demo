@@ -1,6 +1,6 @@
 import { Button, Table } from "react-bootstrap";
 
-function UsersTable({ users }) {
+function UsersTable({ users, handleUserDelete }) {
   const formatBirthDate = (dateString) => {
     const options = {
       weekday: "short",
@@ -39,7 +39,9 @@ function UsersTable({ users }) {
                 <td>{formatBirthDate(birthdate)}</td>
                 <td>
                   <Button variant="primary">Update</Button>{" "}
-                  <Button variant="danger">Delete</Button>
+                  <Button onClick={() => handleUserDelete(id)} variant="danger">
+                    Delete
+                  </Button>
                 </td>
               </tr>
             );

@@ -32,8 +32,42 @@ function Users({ setLoggedIn }) {
     }
   };
 
+  const deleteUser = async (id) => {
+    setLoading(true);
+
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      setLoggedIn(false);
+      return;
+    }
+
+    try {
+      const res = await fetch(usersUrl + id, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+
+      console.log(data);
+
+      const filteredUsers = users.filter((user) => user.id !== id);
+      setUsers(filteredUsers);
+    } catch (err) {
+      console.log("Error fetching users", err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleUserSearch = (query) => {
     setQueryStr(query);
+  };
+
+  const handleUserDelete = (id) => {
+    deleteUser(id);
   };
 
   useEffect(() => {
@@ -57,13 +91,16 @@ function Users({ setLoggedIn }) {
         <>
           <Row className="mb-3">
             <Col className="text-start">
-              <Search queryStr={queryStr} handleUserSearch={handleUserSearch} />
+              <Search handleUserSearch={handleUserSearch} />
             </Col>
             <Col className="text-end">
               <Button variant="primary">Create New User</Button>
             </Col>
           </Row>
-          <UsersTable users={filteredUsers} />
+          <UsersTable
+            handleUserDelete={handleUserDelete}
+            users={filteredUsers}
+          />
         </>
       )}
       <Modal>
