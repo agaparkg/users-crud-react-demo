@@ -1,4 +1,6 @@
-# React Users CRUD App
+# React Users CRUD App Demo with Login Page
+
+- This project is not completed, students will finish as a team.
 
 - Deployed demo UI can be viewed here: https://wretched-harbor.surge.sh/
 
@@ -22,16 +24,22 @@ You may also see any lint errors in the console.
 
 ### UI views
 
+### Login Page
+
+![login](./src/assets/images/login.png)
+
+### Initial View after logging in
+
 ![view](./src/assets/images/view1.png)
 
-### Create New User
+### Create New User (expected after finish)
 
 ![create](./src/assets/images/create.png)
 
-### Update User
+### Update User (expected after finish)
 
 ![update](./src/assets/images/update.png)
 
-### Delete User
+### Delete User (expected after finish)
 
 ![delete](./src/assets/images/delete.png)
